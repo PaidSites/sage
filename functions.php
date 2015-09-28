@@ -10,6 +10,7 @@
  * @link https://github.com/roots/sage/pull/1042
  */
 $sage_includes = [
+  'lib/authentication.php',        // Authentication functions
   'lib/utils.php',                 // Utility functions
   'lib/init.php',                  // Initial theme setup and constants
   'lib/wrapper.php',               // Theme wrapper class
@@ -18,6 +19,7 @@ $sage_includes = [
   'lib/assets.php',                // Scripts and stylesheets
   'lib/titles.php',                // Page titles
   'lib/extras.php',                // Custom functions
+  'lib/users.php',
 ];
 
 foreach ($sage_includes as $file) {
