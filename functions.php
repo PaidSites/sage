@@ -30,3 +30,18 @@ foreach ($sage_includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
+
+// Crafton 2020-05-08
+// Adding a tag in the footer for quick indication of time/build.
+// Default style is to hide it so you have to view source, but can be integrated
+// into the flow, too, (maybe tiny grey text fixed to a bottom corner?) if desired.
+function deployment_stamp() {
+	if ( defined('ABSPATH') ) {
+		$stampfile = ABSPATH . '/wp-content/deployment.stamp';
+		if ( file_exists($stampfile) ) {
+			$content = trim(file_get_contents($stampfile));
+			echo '<p class="deployment-stamp" id="deployment_stamp">' . $content . '</p>';
+		}
+	}
+}
+add_action( 'wp_footer', 'deployment_stamp' );
